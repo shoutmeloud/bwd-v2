@@ -1,0 +1,13 @@
+# Enable RewriteEngine
+RewriteEngine On
+
+# Redirect /admin requests to backend
+RewriteRule ^admin(.*)$ http://127.0.0.1:1337/admin/auth/login [P,L]
+
+# Redirect root (/) to frontend
+RewriteRule ^$ http://127.0.0.1:3000/ [P,L]
+
+# Redirect all other requests to the frontend
+RewriteCond %{REQUEST_URI} !^/admin
+RewriteCond %{REQUEST_URI} !^/$
+RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]

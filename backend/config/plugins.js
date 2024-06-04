@@ -11,8 +11,8 @@ module.exports = ({ env }) => ({
           }
         },
         settings: {
-          defaultFrom: 'hello@example.com',
-          defaultReplyTo: 'hello@example.com',
+          defaultFrom: 'info@bigwavedevelopment.com',
+          defaultReplyTo: 'info@bigwavedevelopment.com',
         },
       },
     },

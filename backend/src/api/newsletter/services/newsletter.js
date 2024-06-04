@@ -25,7 +25,6 @@ module.exports = createCoreService('api::newsletter.newsletter', ({ strapi }) =>
             await strapi.plugin('email').service('email').send({
                 to: email,
                 from: `"${strapi.config.get('plugin.email.settings.defaultFrom')}"`,
-                replyTo: `"${strapi.config.get('plugin.email.settings.defaultReplyTo')}"`,
                 subject: 'Thank you for subscribing to our newsletter!',
                 text: 'You have successfully subscribed to our newsletter.',
                 html: emailHtml

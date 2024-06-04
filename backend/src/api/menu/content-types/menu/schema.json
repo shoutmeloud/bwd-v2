@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "main_heading": {
+      "type": "string"
+    },
+    "sub_menu": {
+      "displayName": "Sub Menu",
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.sub-menu"
+    }
+  }
+}

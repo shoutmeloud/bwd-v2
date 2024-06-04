@@ -14,7 +14,8 @@ module.exports = {
 
     await strapi.plugin('email').service('email').send({
       to: 'souvik.dev@reddensoft.com',
-      from: 'admin@reddensoft.com',
+      from: `"${strapi.config.get('plugin.email.settings.defaultFrom')}"`,
+      replyTo: `"${strapi.config.get('plugin.email.settings.defaultReplyTo')}"`,
       subject: 'New Newsletter Subscription',
       text: `A new user has subscribed to the newsletter with the email: ${email}\n\nRegards,\nYour Company`,
       html: emailHtml,

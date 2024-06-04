@@ -11,8 +11,8 @@ module.exports = ({ env }) => ({
           }
         },
         settings: {
-          defaultFrom: 'admin@reddensoft.com',
-          defaultReplyTo: 'admin@reddensoft.com',
+          defaultFrom: '"Big Web Development" <admin@reddensoft.com>',
+          defaultReplyTo: '"Big Web Development" <admin@reddensoft.com>',
         },
       },
     },

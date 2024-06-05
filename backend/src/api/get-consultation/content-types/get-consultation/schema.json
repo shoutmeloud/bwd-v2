@@ -4,7 +4,8 @@
   "info": {
     "singularName": "get-consultation",
     "pluralName": "get-consultations",
-    "displayName": "Get Consultation"
+    "displayName": "Get Consultation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +22,7 @@
       "type": "string"
     },
     "subject": {
-      "type": "string"
+      "type": "text"
     }
   }
 }

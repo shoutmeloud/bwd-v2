@@ -788,6 +788,104 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface PluginMenusMenu extends Schema.CollectionType {
+  collectionName: 'menus';
+  info: {
+    name: 'Menu';
+    displayName: 'Menu';
+    singularName: 'menu';
+    pluralName: 'menus';
+    tableName: 'menus';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'plugin::menus.menu', 'title'> & Attribute.Required;
+    items: Attribute.Relation<
+      'plugin::menus.menu',
+      'oneToMany',
+      'plugin::menus.menu-item'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::menus.menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::menus.menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginMenusMenuItem extends Schema.CollectionType {
+  collectionName: 'menu_items';
+  info: {
+    name: 'MenuItem';
+    displayName: 'Menu Item';
+    singularName: 'menu-item';
+    pluralName: 'menu-items';
+    tableName: 'menu_items';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    order: Attribute.Integer;
+    title: Attribute.String & Attribute.Required;
+    url: Attribute.String;
+    target: Attribute.Enumeration<['_blank', '_parent', '_self', '_top']>;
+    root_menu: Attribute.Relation<
+      'plugin::menus.menu-item',
+      'manyToOne',
+      'plugin::menus.menu'
+    > &
+      Attribute.Required;
+    parent: Attribute.Relation<
+      'plugin::menus.menu-item',
+      'oneToOne',
+      'plugin::menus.menu-item'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::menus.menu-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::menus.menu-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGetConsultationGetConsultation
   extends Schema.CollectionType {
   collectionName: 'get_consultations';
@@ -795,6 +893,7 @@ export interface ApiGetConsultationGetConsultation
     singularName: 'get-consultation';
     pluralName: 'get-consultations';
     displayName: 'Get Consultation';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -803,7 +902,7 @@ export interface ApiGetConsultationGetConsultation
     full_name: Attribute.String;
     email: Attribute.Email;
     phone_number: Attribute.String;
-    subject: Attribute.String;
+    subject: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -856,30 +955,6 @@ export interface ApiGetInTouchGetInTouch extends Schema.CollectionType {
   };
 }
 
-export interface ApiMenuMenu extends Schema.CollectionType {
-  collectionName: 'menus';
-  info: {
-    singularName: 'menu';
-    pluralName: 'menus';
-    displayName: 'Menu';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    main_heading: Attribute.String;
-    sub_menu: Attribute.Component<'menu.sub-menu', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiNewsletterNewsletter extends Schema.CollectionType {
   collectionName: 'newsletters';
   info: {
@@ -928,9 +1003,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::menus.menu': PluginMenusMenu;
+      'plugin::menus.menu-item': PluginMenusMenuItem;
       'api::get-consultation.get-consultation': ApiGetConsultationGetConsultation;
       'api::get-in-touch.get-in-touch': ApiGetInTouchGetInTouch;
-      'api::menu.menu': ApiMenuMenu;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
     }
   }

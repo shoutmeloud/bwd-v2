@@ -933,7 +933,7 @@ export interface ApiGetInTouchGetInTouch extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    full_name: Attribute.String & Attribute.Required;
     email: Attribute.Email & Attribute.Required & Attribute.Unique;
     contact_number: Attribute.String;
     message: Attribute.Text;

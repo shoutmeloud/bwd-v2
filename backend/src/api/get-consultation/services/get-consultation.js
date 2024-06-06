@@ -15,6 +15,7 @@ module.exports = createCoreService('api::get-consultation.get-consultation', ({s
   
     const emailTemplatePath = path.join(__dirname, '../templates/consultation-email.html');
     let emailHtml = fs.readFileSync(emailTemplatePath, 'utf8');
+    emailHtml = emailHtml.replace('{{full_name}}', full_name);
 
     const consultationDetails = await strapi.query('api::get-consultation.get-consultation').create({
       data: { full_name, email, phone_number, subject }
@@ -31,10 +32,4 @@ module.exports = createCoreService('api::get-consultation.get-consultation', ({s
     }
     return { message: 'You have successfully booked a consultation' };
   }
-
-
-
-
-
-
 }));

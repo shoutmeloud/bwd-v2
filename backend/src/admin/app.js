@@ -32,7 +32,7 @@ const config = {
       "Auth.form.welcome.title": "Welcome to BWD",
       "Auth.form.welcome.subtitle": "Log in to your Admin account",
       "app.components.HomePage.welcome.again": "Welcome to Big Web Development Dashboard👋",
-      "app.components.HomePage.welcomeBlock.content.again": "Big Wave Development has been providing skilled performance through its highly crafted professionals. Our clients speak volumes of the services we have provided since our inception. Customized and tailor-made support from our end has made its way out of complex situations.",
+      "app.components.HomePage.welcomeBlock.content.again": "Big Wave Development has been providing skilled performance through its highly crafted professionals. Our clients speak volumes of the services we have provided since our inception. Customized and tailor-made support from our end has made its way out of complex situations. We're a team of problem solvers, specialists, strategists, and makers on a mission to assist each other and our clients discover their best selves. The urge to deliver high and quality work is our prime objective and we strive to outperform our competitors.",
       "HomePage.helmet.title": "Big Web Development | Dashboard",
 
     },
@@ -47,13 +47,21 @@ const bootstrap = (app) => {
   styleTag.innerText = `
     aside[aria-labelledby="join-the-community"],
     .home-page #main-content>div:first-child>img,
-    .sc-bdvvtL.jvoRhY{
+    .sc-bdvvtL.jvoRhY,
+    .sc-bdvvtL.fFZSIZ.sc-fvxzrP.jhfofu,
+    ul.sc-bdvvtL.sc-gsDKAQ.bOQZK.cyxgkm li:nth-child(4){
       display: none !important;
+    }
+
+    /* Exclude elements with the class 'unique-class' */
+    .unique-class {
+      display: initial !important; /* or 'block' or 'inline', depending on the default display of the element */
     }
   `;
 
   document.head.appendChild(styleTag);
 };
+
 
 
 

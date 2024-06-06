@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
+    "module": "NodeNext",
     "jsx": "react",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "NodeNext",
     "target": "ES2021",
     "checkJs": true,
     "allowJs": true
-  }
+  },
+  "include": [
+    "src",
+    "extensions" // Add the extensions directory here
+  ]
 }

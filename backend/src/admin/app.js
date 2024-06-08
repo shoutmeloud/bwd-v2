@@ -43,7 +43,6 @@ const config = {
 
 const bootstrap = (app) => {
   const styleTag = document.createElement("style");
-
   styleTag.innerText = `
     aside[aria-labelledby="join-the-community"],
     .home-page #main-content>div:first-child>img,
@@ -52,13 +51,7 @@ const bootstrap = (app) => {
     ul.sc-bdvvtL.sc-gsDKAQ.bOQZK.cyxgkm li:nth-child(4){
       display: none !important;
     }
-
-    /* Exclude elements with the class 'unique-class' */
-    .unique-class {
-      display: initial !important; /* or 'block' or 'inline', depending on the default display of the element */
-    }
   `;
-
   document.head.appendChild(styleTag);
 };
 

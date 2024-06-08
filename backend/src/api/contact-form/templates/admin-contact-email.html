@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Consultation Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        strong {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Hi Admin,</p>
+        <p>One customer has recently contacted.</p>
+        <div class="content">
+            <p><strong>Contact Details:</strong></p>
+            <ul>
+                <li><strong>First Name:</strong> {{first_name}}</li>
+                <li><strong>Last Name:</strong> {{last_name}}</li>
+                <li><strong>Email:</strong> {{email}}</li>
+                <li><strong>Phone No:</strong> {{phone_number}}</li>
+                <li><strong>Website:</strong> {{website}}</li>
+                <li><strong>Message:</strong> {{message}}</li>
+            </ul>
+        </div>
+        <br>
+        <p>Regards,</p>
+        <p>Big Web Development</p>
+    </div>
+</body>
+</html>

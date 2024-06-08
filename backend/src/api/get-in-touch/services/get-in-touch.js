@@ -27,7 +27,7 @@ module.exports = createCoreService('api::get-in-touch.get-in-touch', ({ strapi }
             await strapi.plugin('email').service('email').send({
                 to: email,
                 from: `"${strapi.config.get('plugin.email.settings.defaultFrom')}"`,
-                subject: "Confirmation mail",
+                subject: "Thankyou! For connecting with us",
                 text: 'Thankyou! Successfully Sent Email',
                 html: emailHtml
             });

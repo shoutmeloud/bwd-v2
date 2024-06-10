@@ -47,8 +47,7 @@ const bootstrap = (app) => {
     aside[aria-labelledby="join-the-community"],
     .home-page #main-content>div:first-child>img,
     .sc-bdvvtL.jvoRhY,
-    .sc-bdvvtL.fFZSIZ.sc-fvxzrP.jhfofu,
-    ul.sc-bdvvtL.sc-gsDKAQ.bOQZK.cyxgkm li:nth-child(4){
+    .sc-bdvvtL.fFZSIZ.sc-fbyfCU.czKgBP{
       display: none !important;
     }
   `;

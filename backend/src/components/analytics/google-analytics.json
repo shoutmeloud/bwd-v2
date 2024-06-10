@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_analytics_google_analytics",
+  "info": {
+    "displayName": "Google Analytics",
+    "icon": "cog"
+  },
+  "options": {},
+  "attributes": {
+    "head_script": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "body_script": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

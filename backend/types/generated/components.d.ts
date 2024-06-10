@@ -1,5 +1,50 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface AnalyticsGoogleAnalytics extends Schema.Component {
+  collectionName: 'components_analytics_google_analytics';
+  info: {
+    displayName: 'Google Analytics';
+    icon: 'cog';
+  };
+  attributes: {
+    head_script: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    body_script: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+  };
+}
+
+export interface ElementsCards extends Schema.Component {
+  collectionName: 'components_elements_cards';
+  info: {
+    displayName: 'Cards';
+    icon: 'monitor';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media<'images'>;
+    publish_date: Attribute.Date;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbarBalloon';
+        }
+      >;
+  };
+}
+
 export interface ElementsCta extends Schema.Component {
   collectionName: 'components_elements_ctas';
   info: {
@@ -12,6 +57,17 @@ export interface ElementsCta extends Schema.Component {
     link: Attribute.String;
     isEnternal: Attribute.Boolean & Attribute.DefaultTo<false>;
     type: Attribute.Enumeration<['PRIMARY', 'SECONDARY']>;
+  };
+}
+
+export interface ElementsLinks extends Schema.Component {
+  collectionName: 'components_elements_links';
+  info: {
+    displayName: 'Links';
+  };
+  attributes: {
+    title: Attribute.String;
+    link: Attribute.String;
   };
 }
 
@@ -69,7 +125,10 @@ export interface SharedSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'analytics.google-analytics': AnalyticsGoogleAnalytics;
+      'elements.cards': ElementsCards;
       'elements.cta': ElementsCta;
+      'elements.links': ElementsLinks;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
     }

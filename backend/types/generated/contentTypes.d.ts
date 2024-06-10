@@ -1028,6 +1028,39 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
   };
 }
 
+export interface ApiFooterLinkFooterLink extends Schema.SingleType {
+  collectionName: 'footer_links';
+  info: {
+    singularName: 'footer-link';
+    pluralName: 'footer-links';
+    displayName: 'Footer link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    links: Attribute.Component<'elements.links', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer-link.footer-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer-link.footer-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ApiGetConsultationGetConsultation
   extends Schema.CollectionType {
   collectionName: 'get_consultations';
@@ -1119,6 +1152,7 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
     description: Attribute.Text;
     slug: Attribute.UID<'api::landing-page.landing-page', 'title'>;
     seo: Attribute.Component<'shared.seo'>;
+    blocks: Attribute.DynamicZone<['analytics.google-analytics']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1196,6 +1230,7 @@ declare module '@strapi/types' {
       'plugin::sitemap.sitemap': PluginSitemapSitemap;
       'plugin::sitemap.sitemap-cache': PluginSitemapSitemapCache;
       'api::contact-form.contact-form': ApiContactFormContactForm;
+      'api::footer-link.footer-link': ApiFooterLinkFooterLink;
       'api::get-consultation.get-consultation': ApiGetConsultationGetConsultation;
       'api::get-in-touch.get-in-touch': ApiGetInTouchGetInTouch;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;

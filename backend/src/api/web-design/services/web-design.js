@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * footer-link service
+ * web-design service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::footer-link.footer-link');
+module.exports = createCoreService('api::web-design.web-design');

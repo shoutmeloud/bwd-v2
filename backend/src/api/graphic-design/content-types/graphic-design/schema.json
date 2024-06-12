@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "graphic_designs",
+  "info": {
+    "singularName": "graphic-design",
+    "pluralName": "graphic-designs",
+    "displayName": "Graphic Design",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.banner",
+        "sections.connect-us",
+        "sections.content",
+        "sections.heading",
+        "sections.meet-us",
+        "analytics.google-analytics"
+      ]
+    }
+  }
+}

@@ -1028,29 +1028,90 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
   };
 }
 
-export interface ApiFooterLinkFooterLink extends Schema.SingleType {
-  collectionName: 'footer_links';
+export interface ApiDigitalMarketingDigitalMarketing extends Schema.SingleType {
+  collectionName: 'digital_marketings';
   info: {
-    singularName: 'footer-link';
-    pluralName: 'footer-links';
-    displayName: 'Footer link';
+    singularName: 'digital-marketing';
+    pluralName: 'digital-marketings';
+    displayName: 'Digital Marketing';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    links: Attribute.Component<'elements.links', true>;
+    title: Attribute.String;
+    description: Attribute.Text;
+    slug: Attribute.UID<'api::digital-marketing.digital-marketing', 'title'>;
+    seo: Attribute.Component<'shared.seo'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'analytics.google-analytics',
+        'sections.banner',
+        'sections.connect-us',
+        'sections.content',
+        'sections.heading',
+        'sections.meet-us'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::footer-link.footer-link',
+      'api::digital-marketing.digital-marketing',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::footer-link.footer-link',
+      'api::digital-marketing.digital-marketing',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiEmailMarketingEmailMarketing extends Schema.SingleType {
+  collectionName: 'email_marketings';
+  info: {
+    singularName: 'email-marketing';
+    pluralName: 'email-marketings';
+    displayName: 'Email Marketing';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    slug: Attribute.UID<'api::email-marketing.email-marketing', 'title'>;
+    seo: Attribute.Component<'shared.seo'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.connect-us',
+        'sections.content',
+        'sections.heading',
+        'sections.meet-us',
+        'analytics.google-analytics'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::email-marketing.email-marketing',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::email-marketing.email-marketing',
       'oneToOne',
       'admin::user'
     > &
@@ -1136,6 +1197,53 @@ export interface ApiGetInTouchGetInTouch extends Schema.CollectionType {
   };
 }
 
+export interface ApiGraphicDesignGraphicDesign extends Schema.SingleType {
+  collectionName: 'graphic_designs';
+  info: {
+    singularName: 'graphic-design';
+    pluralName: 'graphic-designs';
+    displayName: 'Graphic Design';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    slug: Attribute.UID<'api::graphic-design.graphic-design', 'title'>;
+    seo: Attribute.Component<'shared.seo'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.connect-us',
+        'sections.content',
+        'sections.heading',
+        'sections.meet-us',
+        'analytics.google-analytics'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::graphic-design.graphic-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::graphic-design.graphic-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ApiLandingPageLandingPage extends Schema.CollectionType {
   collectionName: 'landing_pages';
   info: {
@@ -1207,6 +1315,183 @@ export interface ApiNewsletterNewsletter extends Schema.CollectionType {
   };
 }
 
+export interface ApiSeoSeo extends Schema.SingleType {
+  collectionName: 'seos';
+  info: {
+    singularName: 'seo';
+    pluralName: 'seos';
+    displayName: 'SEO';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    slug: Attribute.UID<'api::seo.seo', 'title'>;
+    seo: Attribute.Component<'shared.seo'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'analytics.google-analytics',
+        'sections.banner',
+        'sections.connect-us',
+        'sections.content',
+        'sections.heading',
+        'sections.meet-us'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiUiUxStrategyUiUxStrategy extends Schema.SingleType {
+  collectionName: 'ui_ux_strategies';
+  info: {
+    singularName: 'ui-ux-strategy';
+    pluralName: 'ui-ux-strategies';
+    displayName: 'UI/UX Strategy';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    slug: Attribute.UID<'api::ui-ux-strategy.ui-ux-strategy', 'title'>;
+    seo: Attribute.Component<'shared.seo'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.connect-us',
+        'sections.content',
+        'sections.heading',
+        'sections.meet-us',
+        'analytics.google-analytics'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ui-ux-strategy.ui-ux-strategy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ui-ux-strategy.ui-ux-strategy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiWebDesignWebDesign extends Schema.SingleType {
+  collectionName: 'web_designs';
+  info: {
+    singularName: 'web-design';
+    pluralName: 'web-designs';
+    displayName: 'Web Design';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    slug: Attribute.UID<'api::web-design.web-design', 'title'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'analytics.google-analytics',
+        'sections.banner',
+        'sections.connect-us',
+        'sections.content',
+        'sections.heading',
+        'sections.meet-us'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::web-design.web-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::web-design.web-design',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiWebDevelopmentWebDevelopment extends Schema.SingleType {
+  collectionName: 'web_developments';
+  info: {
+    singularName: 'web-development';
+    pluralName: 'web-developments';
+    displayName: 'Web Development';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    seo: Attribute.Component<'shared.seo'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'analytics.google-analytics',
+        'sections.banner',
+        'sections.connect-us',
+        'sections.content',
+        'sections.heading',
+        'sections.meet-us'
+      ]
+    >;
+    slug: Attribute.UID<'api::web-development.web-development', 'title'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::web-development.web-development',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::web-development.web-development',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1230,11 +1515,17 @@ declare module '@strapi/types' {
       'plugin::sitemap.sitemap': PluginSitemapSitemap;
       'plugin::sitemap.sitemap-cache': PluginSitemapSitemapCache;
       'api::contact-form.contact-form': ApiContactFormContactForm;
-      'api::footer-link.footer-link': ApiFooterLinkFooterLink;
+      'api::digital-marketing.digital-marketing': ApiDigitalMarketingDigitalMarketing;
+      'api::email-marketing.email-marketing': ApiEmailMarketingEmailMarketing;
       'api::get-consultation.get-consultation': ApiGetConsultationGetConsultation;
       'api::get-in-touch.get-in-touch': ApiGetInTouchGetInTouch;
+      'api::graphic-design.graphic-design': ApiGraphicDesignGraphicDesign;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
+      'api::seo.seo': ApiSeoSeo;
+      'api::ui-ux-strategy.ui-ux-strategy': ApiUiUxStrategyUiUxStrategy;
+      'api::web-design.web-design': ApiWebDesignWebDesign;
+      'api::web-development.web-development': ApiWebDevelopmentWebDevelopment;
     }
   }
 }

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_elements_company_short_descriptions",
+  "info": {
+    "displayName": "Company Short Description",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "social": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.social-links"
+    }
+  }
+}

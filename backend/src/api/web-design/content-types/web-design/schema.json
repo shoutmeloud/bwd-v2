@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "web_designs",
+  "info": {
+    "singularName": "web-design",
+    "pluralName": "web-designs",
+    "displayName": "Web Design"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "analytics.google-analytics",
+        "sections.banner",
+        "sections.connect-us",
+        "sections.content",
+        "sections.heading",
+        "sections.meet-us"
+      ]
+    }
+  }
+}

@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "full_name": {
       "type": "string",
       "required": true
     },

@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "ui_ux_strategies",
+  "info": {
+    "singularName": "ui-ux-strategy",
+    "pluralName": "ui-ux-strategies",
+    "displayName": "UI/UX Strategy",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.banner",
+        "sections.connect-us",
+        "sections.content",
+        "sections.heading",
+        "sections.meet-us",
+        "analytics.google-analytics"
+      ]
+    }
+  }
+}

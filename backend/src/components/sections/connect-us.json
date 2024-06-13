@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_sections_connect_uses",
+  "info": {
+    "displayName": "Connect Us",
+    "icon": "emotionHappy",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "project_completed": {
+      "type": "integer"
+    },
+    "satisfied_clients": {
+      "type": "integer"
+    }
+  }
+}

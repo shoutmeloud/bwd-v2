@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elements_short_contacts",
+  "info": {
+    "displayName": "Short Contact",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "location": {
+      "type": "string"
+    },
+    "contact_number": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "social": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.social-links"
+    }
+  }
+}

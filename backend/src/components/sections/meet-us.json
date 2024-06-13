@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_meet_uses",
+  "info": {
+    "displayName": "Meet Us",
+    "icon": "monitor"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbar"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "contact_number": {
+      "type": "string"
+    }
+  }
+}

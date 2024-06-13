@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "web_developments",
+  "info": {
+    "singularName": "web-development",
+    "pluralName": "web-developments",
+    "displayName": "Web Development",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "analytics.google-analytics",
+        "sections.banner",
+        "sections.connect-us",
+        "sections.content",
+        "sections.heading",
+        "sections.meet-us"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

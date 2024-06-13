@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_elements_ctas",
+  "info": {
+    "displayName": "CTA Buttons",
+    "icon": "bold",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "isEnternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "PRIMARY",
+        "SECONDARY"
+      ]
+    }
+  }
+}

@@ -1,21 +1,16 @@
 {
-  "collectionName": "components_banner_banners",
+  "collectionName": "components_sections_banners",
   "info": {
     "displayName": "Banner",
-    "description": ""
+    "icon": "bold"
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+    "banner": {
+      "displayName": "Image with heading",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.image-with-heading"
     }
   }
 }

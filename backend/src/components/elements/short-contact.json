@@ -18,7 +18,7 @@
     },
     "social": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "elements.social-links"
     }
   }

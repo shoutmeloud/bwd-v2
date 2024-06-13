@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_elements_card_lists",
+  "info": {
+    "displayName": "Card List",
+    "icon": "server"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "Professional"
+      ]
+    },
+    "estimate_time": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

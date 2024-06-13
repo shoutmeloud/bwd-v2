@@ -27,11 +27,10 @@
       "type": "dynamiczone",
       "components": [
         "analytics.google-analytics",
-        "sections.banner",
         "sections.connect-us",
-        "sections.content",
         "sections.heading",
-        "sections.meet-us"
+        "sections.meet-us",
+        "sections.service-content"
       ]
     },
     "slug": {

@@ -1047,11 +1047,10 @@ export interface ApiDigitalMarketingDigitalMarketing extends Schema.SingleType {
     blocks: Attribute.DynamicZone<
       [
         'analytics.google-analytics',
-        'sections.banner',
         'sections.connect-us',
-        'sections.content',
         'sections.heading',
-        'sections.meet-us'
+        'sections.meet-us',
+        'sections.service-content'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1093,12 +1092,10 @@ export interface ApiEmailMarketingEmailMarketing extends Schema.SingleType {
     seo: Attribute.Component<'shared.seo'>;
     blocks: Attribute.DynamicZone<
       [
-        'sections.banner',
         'sections.connect-us',
-        'sections.content',
-        'sections.heading',
         'sections.meet-us',
-        'analytics.google-analytics'
+        'analytics.google-analytics',
+        'sections.service-content'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1112,6 +1109,41 @@ export interface ApiEmailMarketingEmailMarketing extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::email-marketing.email-marketing',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiFooterFooter extends Schema.CollectionType {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Attribute.DynamicZone<
+      ['elements.company-short-description', 'elements.short-contact']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::footer.footer',
       'oneToOne',
       'admin::user'
     > &
@@ -1215,12 +1247,11 @@ export interface ApiGraphicDesignGraphicDesign extends Schema.SingleType {
     seo: Attribute.Component<'shared.seo'>;
     blocks: Attribute.DynamicZone<
       [
-        'sections.banner',
         'sections.connect-us',
-        'sections.content',
         'sections.heading',
         'sections.meet-us',
-        'analytics.google-analytics'
+        'analytics.google-analytics',
+        'sections.service-content'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1260,7 +1291,23 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
     description: Attribute.Text;
     slug: Attribute.UID<'api::landing-page.landing-page', 'title'>;
     seo: Attribute.Component<'shared.seo'>;
-    blocks: Attribute.DynamicZone<['analytics.google-analytics']>;
+    blocks: Attribute.DynamicZone<
+      [
+        'sections.banner',
+        'sections.portfolio',
+        'sections.talk-to-experts',
+        'sections.proven-process',
+        'sections.meet-us',
+        'sections.clients',
+        'sections.companies',
+        'sections.blogs-and-news',
+        'sections.connect-us',
+        'sections.get-in-touch',
+        'sections.hero',
+        'sections.heading',
+        'analytics.google-analytics'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1321,6 +1368,7 @@ export interface ApiSeoSeo extends Schema.SingleType {
     singularName: 'seo';
     pluralName: 'seos';
     displayName: 'SEO';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1333,11 +1381,10 @@ export interface ApiSeoSeo extends Schema.SingleType {
     blocks: Attribute.DynamicZone<
       [
         'analytics.google-analytics',
-        'sections.banner',
         'sections.connect-us',
-        'sections.content',
         'sections.heading',
-        'sections.meet-us'
+        'sections.meet-us',
+        'sections.service-content'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1371,12 +1418,11 @@ export interface ApiUiUxStrategyUiUxStrategy extends Schema.SingleType {
     seo: Attribute.Component<'shared.seo'>;
     blocks: Attribute.DynamicZone<
       [
-        'sections.banner',
         'sections.connect-us',
-        'sections.content',
         'sections.heading',
         'sections.meet-us',
-        'analytics.google-analytics'
+        'analytics.google-analytics',
+        'sections.service-content'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1406,6 +1452,7 @@ export interface ApiWebDesignWebDesign extends Schema.SingleType {
     singularName: 'web-design';
     pluralName: 'web-designs';
     displayName: 'Web Design';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1417,11 +1464,10 @@ export interface ApiWebDesignWebDesign extends Schema.SingleType {
     blocks: Attribute.DynamicZone<
       [
         'analytics.google-analytics',
-        'sections.banner',
         'sections.connect-us',
-        'sections.content',
         'sections.heading',
-        'sections.meet-us'
+        'sections.meet-us',
+        'sections.service-content'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1463,11 +1509,10 @@ export interface ApiWebDevelopmentWebDevelopment extends Schema.SingleType {
     blocks: Attribute.DynamicZone<
       [
         'analytics.google-analytics',
-        'sections.banner',
         'sections.connect-us',
-        'sections.content',
         'sections.heading',
-        'sections.meet-us'
+        'sections.meet-us',
+        'sections.service-content'
       ]
     >;
     slug: Attribute.UID<'api::web-development.web-development', 'title'>;
@@ -1517,6 +1562,7 @@ declare module '@strapi/types' {
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::digital-marketing.digital-marketing': ApiDigitalMarketingDigitalMarketing;
       'api::email-marketing.email-marketing': ApiEmailMarketingEmailMarketing;
+      'api::footer.footer': ApiFooterFooter;
       'api::get-consultation.get-consultation': ApiGetConsultationGetConsultation;
       'api::get-in-touch.get-in-touch': ApiGetInTouchGetInTouch;
       'api::graphic-design.graphic-design': ApiGraphicDesignGraphicDesign;

@@ -30,12 +30,11 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "sections.banner",
         "sections.connect-us",
-        "sections.content",
         "sections.heading",
         "sections.meet-us",
-        "analytics.google-analytics"
+        "analytics.google-analytics",
+        "sections.service-content"
       ]
     }
   }

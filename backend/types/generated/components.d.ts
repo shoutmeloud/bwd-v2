@@ -24,6 +24,20 @@ export interface AnalyticsGoogleAnalytics extends Schema.Component {
   };
 }
 
+export interface ElementsCardList extends Schema.Component {
+  collectionName: 'components_elements_card_lists';
+  info: {
+    displayName: 'Card List';
+    icon: 'server';
+  };
+  attributes: {
+    title: Attribute.String;
+    level: Attribute.Enumeration<['Beginner', 'Intermediate', 'Professional']>;
+    estimate_time: Attribute.String;
+    icon: Attribute.Media<'images'>;
+  };
+}
+
 export interface ElementsCards extends Schema.Component {
   collectionName: 'components_elements_cards';
   info: {
@@ -35,13 +49,14 @@ export interface ElementsCards extends Schema.Component {
     title: Attribute.String;
     image: Attribute.Media<'images'>;
     publish_date: Attribute.Date;
-    content: Attribute.RichText &
+    description: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'toolbarBalloon';
         }
       >;
+    short_title: Attribute.String;
   };
 }
 
@@ -49,7 +64,8 @@ export interface ElementsCompanyShortDescription extends Schema.Component {
   collectionName: 'components_elements_company_short_descriptions';
   info: {
     displayName: 'Company Short Description';
-    icon: 'grid';
+    icon: 'cup';
+    description: '';
   };
   attributes: {
     logo: Attribute.Media<'images'>;
@@ -79,6 +95,19 @@ export interface ElementsCta extends Schema.Component {
   };
 }
 
+export interface ElementsImageWithHeading extends Schema.Component {
+  collectionName: 'components_elements_image_with_headings';
+  info: {
+    displayName: 'Image with heading';
+    icon: 'attachment';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Media<'images'>;
+  };
+}
+
 export interface ElementsShortContact extends Schema.Component {
   collectionName: 'components_elements_short_contacts';
   info: {
@@ -90,7 +119,7 @@ export interface ElementsShortContact extends Schema.Component {
     location: Attribute.String;
     contact_number: Attribute.String;
     email: Attribute.Email;
-    social: Attribute.Component<'elements.social-links', true>;
+    social: Attribute.Component<'elements.social-links'>;
   };
 }
 
@@ -109,14 +138,48 @@ export interface ElementsSocialLinks extends Schema.Component {
 }
 
 export interface SectionsBanner extends Schema.Component {
-  collectionName: 'components_banner_banners';
+  collectionName: 'components_sections_banners';
   info: {
     displayName: 'Banner';
-    description: '';
+    icon: 'bold';
   };
   attributes: {
-    title: Attribute.String;
-    image: Attribute.Media<'images', true>;
+    banner: Attribute.Component<'elements.image-with-heading', true>;
+  };
+}
+
+export interface SectionsBlogsAndNews extends Schema.Component {
+  collectionName: 'components_sections_blogs_and_news';
+  info: {
+    displayName: 'Blogs & News';
+    icon: 'bold';
+  };
+  attributes: {
+    description: Attribute.Text;
+    button: Attribute.Component<'elements.cta'>;
+    blogs: Attribute.Component<'elements.cards', true>;
+  };
+}
+
+export interface SectionsClients extends Schema.Component {
+  collectionName: 'components_sections_clients';
+  info: {
+    displayName: 'Clients';
+    icon: 'emotionHappy';
+  };
+  attributes: {
+    clients_review: Attribute.Component<'elements.cards'>;
+  };
+}
+
+export interface SectionsCompanies extends Schema.Component {
+  collectionName: 'components_sections_companies';
+  info: {
+    displayName: 'Companies';
+    icon: 'gate';
+  };
+  attributes: {
+    companies: Attribute.Component<'elements.social-links', true>;
   };
 }
 
@@ -161,6 +224,21 @@ export interface SectionsContent extends Schema.Component {
   };
 }
 
+export interface SectionsGetInTouch extends Schema.Component {
+  collectionName: 'components_sections_get_in_touches';
+  info: {
+    displayName: 'Get In Touch';
+    icon: 'connector';
+  };
+  attributes: {
+    title: Attribute.String;
+    heading: Attribute.String;
+    description: Attribute.Text;
+    button: Attribute.Component<'elements.cta'>;
+    key_list: Attribute.Component<'elements.card-list'>;
+  };
+}
+
 export interface SectionsHeading extends Schema.Component {
   collectionName: 'components_heading_headings';
   info: {
@@ -180,6 +258,32 @@ export interface SectionsHeading extends Schema.Component {
   };
 }
 
+export interface SectionsHero extends Schema.Component {
+  collectionName: 'components_sections_heroes';
+  info: {
+    displayName: 'Hero';
+    icon: 'emotionHappy';
+  };
+  attributes: {
+    title: Attribute.String;
+    heading: Attribute.Text;
+  };
+}
+
+export interface SectionsLinks extends Schema.Component {
+  collectionName: 'components_sections_links';
+  info: {
+    displayName: 'Links';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    link: Attribute.String;
+    button: Attribute.Component<'elements.cta'>;
+  };
+}
+
 export interface SectionsMeetUs extends Schema.Component {
   collectionName: 'components_sections_meet_uses';
   info: {
@@ -195,6 +299,63 @@ export interface SectionsMeetUs extends Schema.Component {
         }
       >;
     contact_number: Attribute.String;
+  };
+}
+
+export interface SectionsPortfolio extends Schema.Component {
+  collectionName: 'components_sections_portfolios';
+  info: {
+    displayName: 'Portfolio';
+    icon: 'play';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Component<'elements.social-links', true>;
+  };
+}
+
+export interface SectionsProvenProcess extends Schema.Component {
+  collectionName: 'components_sections_proven_processes';
+  info: {
+    displayName: 'Proven Process';
+    icon: 'music';
+    description: '';
+  };
+  attributes: {
+    upper_description: Attribute.Text;
+    lower_description: Attribute.Text;
+    left_right_section: Attribute.Component<'elements.cards', true>;
+  };
+}
+
+export interface SectionsServiceContent extends Schema.Component {
+  collectionName: 'components_elements_service_contents';
+  info: {
+    displayName: 'Service Content';
+    icon: 'cube';
+    description: '';
+  };
+  attributes: {
+    content: Attribute.Component<'elements.cards', true>;
+  };
+}
+
+export interface SectionsTalkToExperts extends Schema.Component {
+  collectionName: 'components_sections_talk_to_experts';
+  info: {
+    displayName: 'Talk to experts';
+    icon: 'volumeUp';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    media: Attribute.Media<'images' | 'videos'>;
   };
 }
 
@@ -253,16 +414,28 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'analytics.google-analytics': AnalyticsGoogleAnalytics;
+      'elements.card-list': ElementsCardList;
       'elements.cards': ElementsCards;
       'elements.company-short-description': ElementsCompanyShortDescription;
       'elements.cta': ElementsCta;
+      'elements.image-with-heading': ElementsImageWithHeading;
       'elements.short-contact': ElementsShortContact;
       'elements.social-links': ElementsSocialLinks;
       'sections.banner': SectionsBanner;
+      'sections.blogs-and-news': SectionsBlogsAndNews;
+      'sections.clients': SectionsClients;
+      'sections.companies': SectionsCompanies;
       'sections.connect-us': SectionsConnectUs;
       'sections.content': SectionsContent;
+      'sections.get-in-touch': SectionsGetInTouch;
       'sections.heading': SectionsHeading;
+      'sections.hero': SectionsHero;
+      'sections.links': SectionsLinks;
       'sections.meet-us': SectionsMeetUs;
+      'sections.portfolio': SectionsPortfolio;
+      'sections.proven-process': SectionsProvenProcess;
+      'sections.service-content': SectionsServiceContent;
+      'sections.talk-to-experts': SectionsTalkToExperts;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
     }

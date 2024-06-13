@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_proven_processes",
+  "info": {
+    "displayName": "Proven Process",
+    "icon": "music",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "upper_description": {
+      "type": "text"
+    },
+    "lower_description": {
+      "type": "text"
+    },
+    "left_right_section": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.cards"
+    }
+  }
+}

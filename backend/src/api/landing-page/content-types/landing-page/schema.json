@@ -30,6 +30,18 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
+        "sections.banner",
+        "sections.portfolio",
+        "sections.talk-to-experts",
+        "sections.proven-process",
+        "sections.meet-us",
+        "sections.clients",
+        "sections.companies",
+        "sections.blogs-and-news",
+        "sections.connect-us",
+        "sections.get-in-touch",
+        "sections.hero",
+        "sections.heading",
         "analytics.google-analytics"
       ]
     }

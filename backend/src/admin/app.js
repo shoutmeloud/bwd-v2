@@ -31,9 +31,9 @@ const config = {
       'app.components.LeftMenu.navbrand.workplace': 'Admin Dashboard',
       "Auth.form.welcome.title": "Welcome to BWD",
       "Auth.form.welcome.subtitle": "Log in to your Admin account",
-      "app.components.HomePage.welcome.again": "Welcome to Big Web Development Dashboard👋",
+      "app.components.HomePage.welcome.again": "Welcome to Big Wave Development👋",
       "app.components.HomePage.welcomeBlock.content.again": "Big Wave Development has been providing skilled performance through its highly crafted professionals. Our clients speak volumes of the services we have provided since our inception. Customized and tailor-made support from our end has made its way out of complex situations. We're a team of problem solvers, specialists, strategists, and makers on a mission to assist each other and our clients discover their best selves. The urge to deliver high and quality work is our prime objective and we strive to outperform our competitors.",
-      "HomePage.helmet.title": "Big Web Development | Dashboard",
+      "HomePage.helmet.title": "Big Wave Development | Dashboard",
 
     },
   },

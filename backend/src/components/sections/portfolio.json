@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_portfolios",
+  "info": {
+    "displayName": "Portfolio",
+    "icon": "play",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.social-links"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_clients",
+  "info": {
+    "displayName": "Clients",
+    "icon": "emotionHappy"
+  },
+  "options": {},
+  "attributes": {
+    "clients_review": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.cards"
+    }
+  }
+}

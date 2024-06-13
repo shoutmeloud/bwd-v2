@@ -21,12 +21,15 @@
     "publish_date": {
       "type": "date"
     },
-    "content": {
+    "description": {
       "type": "customField",
       "options": {
         "preset": "toolbarBalloon"
       },
       "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "short_title": {
+      "type": "string"
     }
   }
 }

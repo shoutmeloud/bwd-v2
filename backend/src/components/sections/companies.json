@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_companies",
+  "info": {
+    "displayName": "Companies",
+    "icon": "gate"
+  },
+  "options": {},
+  "attributes": {
+    "companies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.social-links"
+    }
+  }
+}

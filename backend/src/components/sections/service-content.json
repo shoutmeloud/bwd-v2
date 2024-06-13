@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_service_contents",
+  "info": {
+    "displayName": "Service Content",
+    "icon": "cube",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.cards"
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "web_developments",
+  "collectionName": "pay_per_clicks",
   "info": {
-    "singularName": "web-development",
-    "pluralName": "web-developments",
-    "displayName": "Web Development",
+    "singularName": "pay-per-click",
+    "pluralName": "pay-per-clicks",
+    "displayName": "Pay Per Click",
     "description": ""
   },
   "options": {
@@ -18,6 +18,10 @@
     "description": {
       "type": "text"
     },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
     "seo": {
       "type": "component",
       "repeatable": false,
@@ -27,15 +31,11 @@
       "type": "dynamiczone",
       "components": [
         "analytics.google-analytics",
-        "sections.connect-us",
         "sections.heading",
         "sections.meet-us",
+        "sections.connect-us",
         "sections.service-content"
       ]
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
     }
   }
 }

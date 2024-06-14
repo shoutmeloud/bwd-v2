@@ -1,5 +1,5 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "web_designs",
   "info": {
     "singularName": "web-design",

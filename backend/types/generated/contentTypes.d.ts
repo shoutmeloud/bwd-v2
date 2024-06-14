@@ -1028,7 +1028,8 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
   };
 }
 
-export interface ApiDigitalMarketingDigitalMarketing extends Schema.SingleType {
+export interface ApiDigitalMarketingDigitalMarketing
+  extends Schema.CollectionType {
   collectionName: 'digital_marketings';
   info: {
     singularName: 'digital-marketing';
@@ -1074,13 +1075,12 @@ export interface ApiDigitalMarketingDigitalMarketing extends Schema.SingleType {
   };
 }
 
-export interface ApiEmailMarketingEmailMarketing extends Schema.SingleType {
+export interface ApiEmailMarketingEmailMarketing extends Schema.CollectionType {
   collectionName: 'email_marketings';
   info: {
     singularName: 'email-marketing';
     pluralName: 'email-marketings';
     displayName: 'Email Marketing';
-    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1089,13 +1089,14 @@ export interface ApiEmailMarketingEmailMarketing extends Schema.SingleType {
     title: Attribute.String;
     description: Attribute.Text;
     slug: Attribute.UID<'api::email-marketing.email-marketing', 'title'>;
-    seo: Attribute.Component<'shared.seo'>;
+    seo: Attribute.Component<'shared.seo', true>;
     blocks: Attribute.DynamicZone<
       [
-        'sections.connect-us',
-        'sections.meet-us',
         'analytics.google-analytics',
-        'sections.service-content'
+        'sections.heading',
+        'sections.service-content',
+        'sections.meet-us',
+        'sections.connect-us'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1119,12 +1120,13 @@ export interface ApiEmailMarketingEmailMarketing extends Schema.SingleType {
   };
 }
 
-export interface ApiFooterFooter extends Schema.CollectionType {
+export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
     singularName: 'footer';
     pluralName: 'footers';
     displayName: 'Footer';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1229,7 +1231,7 @@ export interface ApiGetInTouchGetInTouch extends Schema.CollectionType {
   };
 }
 
-export interface ApiGraphicDesignGraphicDesign extends Schema.SingleType {
+export interface ApiGraphicDesignGraphicDesign extends Schema.CollectionType {
   collectionName: 'graphic_designs';
   info: {
     singularName: 'graphic-design';
@@ -1362,12 +1364,58 @@ export interface ApiNewsletterNewsletter extends Schema.CollectionType {
   };
 }
 
-export interface ApiSeoSeo extends Schema.SingleType {
+export interface ApiPayPerClickPayPerClick extends Schema.CollectionType {
+  collectionName: 'pay_per_clicks';
+  info: {
+    singularName: 'pay-per-click';
+    pluralName: 'pay-per-clicks';
+    displayName: 'Pay Per Click';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    slug: Attribute.UID<'api::pay-per-click.pay-per-click', 'title'>;
+    seo: Attribute.Component<'shared.seo'>;
+    blocks: Attribute.DynamicZone<
+      [
+        'analytics.google-analytics',
+        'sections.heading',
+        'sections.meet-us',
+        'sections.connect-us',
+        'sections.service-content'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pay-per-click.pay-per-click',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pay-per-click.pay-per-click',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiSeoSeo extends Schema.CollectionType {
   collectionName: 'seos';
   info: {
     singularName: 'seo';
     pluralName: 'seos';
-    displayName: 'SEO';
+    displayName: 'SEO Page';
     description: '';
   };
   options: {
@@ -1400,7 +1448,7 @@ export interface ApiSeoSeo extends Schema.SingleType {
   };
 }
 
-export interface ApiUiUxStrategyUiUxStrategy extends Schema.SingleType {
+export interface ApiUiUxStrategyUiUxStrategy extends Schema.CollectionType {
   collectionName: 'ui_ux_strategies';
   info: {
     singularName: 'ui-ux-strategy';
@@ -1446,7 +1494,7 @@ export interface ApiUiUxStrategyUiUxStrategy extends Schema.SingleType {
   };
 }
 
-export interface ApiWebDesignWebDesign extends Schema.SingleType {
+export interface ApiWebDesignWebDesign extends Schema.CollectionType {
   collectionName: 'web_designs';
   info: {
     singularName: 'web-design';
@@ -1491,7 +1539,7 @@ export interface ApiWebDesignWebDesign extends Schema.SingleType {
   };
 }
 
-export interface ApiWebDevelopmentWebDevelopment extends Schema.SingleType {
+export interface ApiWebDevelopmentWebDevelopment extends Schema.CollectionType {
   collectionName: 'web_developments';
   info: {
     singularName: 'web-development';
@@ -1568,6 +1616,7 @@ declare module '@strapi/types' {
       'api::graphic-design.graphic-design': ApiGraphicDesignGraphicDesign;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
+      'api::pay-per-click.pay-per-click': ApiPayPerClickPayPerClick;
       'api::seo.seo': ApiSeoSeo;
       'api::ui-ux-strategy.ui-ux-strategy': ApiUiUxStrategyUiUxStrategy;
       'api::web-design.web-design': ApiWebDesignWebDesign;

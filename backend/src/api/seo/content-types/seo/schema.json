@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "seos",
   "info": {
     "singularName": "seo",
     "pluralName": "seos",
-    "displayName": "SEO",
+    "displayName": "SEO Page",
     "description": ""
   },
   "options": {

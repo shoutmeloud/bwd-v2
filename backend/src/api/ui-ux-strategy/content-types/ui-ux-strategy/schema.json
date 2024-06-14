@@ -1,5 +1,5 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "ui_ux_strategies",
   "info": {
     "singularName": "ui-ux-strategy",

@@ -1,5 +1,5 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "digital_marketings",
   "info": {
     "singularName": "digital-marketing",

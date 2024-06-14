@@ -1,11 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "email_marketings",
   "info": {
     "singularName": "email-marketing",
     "pluralName": "email-marketings",
-    "displayName": "Email Marketing",
-    "description": ""
+    "displayName": "Email Marketing"
   },
   "options": {
     "draftAndPublish": true
@@ -24,16 +23,17 @@
     },
     "seo": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "shared.seo"
     },
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "sections.connect-us",
-        "sections.meet-us",
         "analytics.google-analytics",
-        "sections.service-content"
+        "sections.heading",
+        "sections.service-content",
+        "sections.meet-us",
+        "sections.connect-us"
       ]
     }
   }

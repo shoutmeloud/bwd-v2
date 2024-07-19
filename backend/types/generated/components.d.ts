@@ -229,6 +229,7 @@ export interface SectionsGetInTouch extends Schema.Component {
   info: {
     displayName: 'Get In Touch';
     icon: 'connector';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -236,6 +237,7 @@ export interface SectionsGetInTouch extends Schema.Component {
     description: Attribute.Text;
     button: Attribute.Component<'elements.cta'>;
     key_list: Attribute.Component<'elements.card-list'>;
+    cta_button: Attribute.Component<'elements.cta'>;
   };
 }
 
@@ -322,8 +324,6 @@ export interface SectionsProvenProcess extends Schema.Component {
     description: '';
   };
   attributes: {
-    upper_description: Attribute.Text;
-    lower_description: Attribute.Text;
     left_right_section: Attribute.Component<'elements.cards', true>;
   };
 }
@@ -345,6 +345,7 @@ export interface SectionsTalkToExperts extends Schema.Component {
   info: {
     displayName: 'Talk to experts';
     icon: 'volumeUp';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -356,6 +357,7 @@ export interface SectionsTalkToExperts extends Schema.Component {
         }
       >;
     media: Attribute.Media<'images' | 'videos'>;
+    cta_button: Attribute.Component<'elements.cta'>;
   };
 }
 

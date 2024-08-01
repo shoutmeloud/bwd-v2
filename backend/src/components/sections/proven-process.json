@@ -11,6 +11,15 @@
       "type": "component",
       "repeatable": true,
       "component": "elements.cards"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "short_description": {
+      "type": "text"
     }
   }
 }

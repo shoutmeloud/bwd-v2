@@ -28,7 +28,7 @@
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
-    "short_title": {
+    "read_more": {
       "type": "string"
     }
   }

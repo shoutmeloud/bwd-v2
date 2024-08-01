@@ -56,7 +56,7 @@ export interface ElementsCards extends Schema.Component {
           preset: 'toolbarBalloon';
         }
       >;
-    short_title: Attribute.String;
+    read_more: Attribute.String;
   };
 }
 
@@ -100,6 +100,7 @@ export interface ElementsImageWithHeading extends Schema.Component {
   info: {
     displayName: 'Image with heading';
     icon: 'attachment';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -126,7 +127,7 @@ export interface ElementsShortContact extends Schema.Component {
 export interface ElementsSocialLinks extends Schema.Component {
   collectionName: 'components_elements_social_links';
   info: {
-    displayName: 'Social Links';
+    displayName: 'Links';
     icon: 'bulletList';
     description: '';
   };
@@ -142,6 +143,7 @@ export interface SectionsBanner extends Schema.Component {
   info: {
     displayName: 'Banner';
     icon: 'bold';
+    description: '';
   };
   attributes: {
     banner: Attribute.Component<'elements.image-with-heading', true>;
@@ -153,11 +155,13 @@ export interface SectionsBlogsAndNews extends Schema.Component {
   info: {
     displayName: 'Blogs & News';
     icon: 'bold';
+    description: '';
   };
   attributes: {
     description: Attribute.Text;
     button: Attribute.Component<'elements.cta'>;
     blogs: Attribute.Component<'elements.cards', true>;
+    title: Attribute.String;
   };
 }
 
@@ -234,10 +238,12 @@ export interface SectionsGetInTouch extends Schema.Component {
   attributes: {
     title: Attribute.String;
     heading: Attribute.String;
-    description: Attribute.Text;
-    button: Attribute.Component<'elements.cta'>;
+    first_description: Attribute.Text;
     key_list: Attribute.Component<'elements.card-list'>;
     cta_button: Attribute.Component<'elements.cta'>;
+    second_description: Attribute.Text;
+    third_description: Attribute.Text;
+    header_menu: Attribute.Component<'elements.social-links', true>;
   };
 }
 
@@ -325,6 +331,9 @@ export interface SectionsProvenProcess extends Schema.Component {
   };
   attributes: {
     left_right_section: Attribute.Component<'elements.cards', true>;
+    title: Attribute.String;
+    description: Attribute.Text;
+    short_description: Attribute.Text;
   };
 }
 

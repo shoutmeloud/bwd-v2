@@ -1292,7 +1292,6 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.Text;
     slug: Attribute.UID<'api::landing-page.landing-page', 'title'>;
-    seo: Attribute.Component<'shared.seo'>;
     blocks: Attribute.DynamicZone<
       [
         'sections.banner',
@@ -1310,6 +1309,7 @@ export interface ApiLandingPageLandingPage extends Schema.CollectionType {
         'analytics.google-analytics'
       ]
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

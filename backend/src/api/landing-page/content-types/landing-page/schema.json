@@ -22,11 +22,6 @@
       "type": "uid",
       "targetField": "title"
     },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.seo"
-    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
@@ -44,6 +39,11 @@
         "sections.heading",
         "analytics.google-analytics"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
